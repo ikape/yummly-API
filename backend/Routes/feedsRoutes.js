@@ -18,7 +18,7 @@ const options = {
   url: 'https://yummly2.p.rapidapi.com/feeds/list',
   params: {limit: '24', start: '0'},
   headers: {
-    'X-RapidAPI-Key': '6b986dc8f7msh6a4bfdf9c925ddbp19b140jsnd0687ed9cdd3',
+    'X-RapidAPI-Key': API_KEY,
     'X-RapidAPI-Host': 'yummly2.p.rapidapi.com'
   }
 };
@@ -44,7 +44,7 @@ const options = {
     FAT_KCALMax: '1000'
   },
   headers: {
-    'X-RapidAPI-Key': '6b986dc8f7msh6a4bfdf9c925ddbp19b140jsnd0687ed9cdd3',
+    'X-RapidAPI-Key': API_KEY,
     'X-RapidAPI-Host': 'yummly2.p.rapidapi.com'
   }
 };
@@ -62,7 +62,7 @@ router.get('/feeds/auto-complete', (req, res) => {
   url: 'https://yummly2.p.rapidapi.com/feeds/auto-complete',
   params: {q: 'chicken soup'},
   headers: {
-    'X-RapidAPI-Key': '6b986dc8f7msh6a4bfdf9c925ddbp19b140jsnd0687ed9cdd3',
+    'X-RapidAPI-Key': API_KEY,
     'X-RapidAPI-Host': 'yummly2.p.rapidapi.com'
   }
 };
@@ -88,7 +88,7 @@ router.get('/feeds/list-similarities', (req, res) => {
     authorId: 'Yummly'
   },
   headers: {
-    'X-RapidAPI-Key': '6b986dc8f7msh6a4bfdf9c925ddbp19b140jsnd0687ed9cdd3',
+    'X-RapidAPI-Key': API_KEY,
     'X-RapidAPI-Host': 'yummly2.p.rapidapi.com'
   }
 };
