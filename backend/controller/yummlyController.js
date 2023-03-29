@@ -1,46 +1,46 @@
 // Feed auto-Complete
-const getFeedautoComplete = (req, res) => {
+const autoComplete = (req, res) => {
   res.status(200).json({message: 'Get auto complete'})
 }
 
 // Feed Search
-const getFeedsSearch = (req, res) => {
+const getSearch = (req, res) => {
   res.status(200).json({message: 'Get feed search'})
 }
 
 // Feed List
-const getFeedsList = (req, res) => {
+const getList = (req, res) => {
   res.status(200).json({message: `Get feed list`})
 }
 
 // Feed List Similarities
-const getListSimilarities = (req, res) => {
+const getSimilarities = (req, res) => {
   res.status(200).json({message: `Get Similarities`})
 }
 
 // Feed Tags List
-const getTagsList = (req, res) => {
+const getTags = (req, res) => {
   res.status(200).json({message: `Get Tag list`})
 }
 
 // Feed Categories List
-const getCategoriesList = (req, res) => {
+const getCategories = (req, res) => {
   res.status(200).json({message: `Get categories List`})
 }
 
 // Feed Review List
-const getReviewsList = (req, res) => {
+const getReviews = (req, res) => {
   res.status(200).json({message: `Get Reviewa List`})
 }
 
 
 module.exports = {
-  getFeedautoComplete,
-  getFeedsSearch ,
-  getFeedsList,
-  getListSimilarities,
-  getTagsList,
-  getCategoriesList,
-  getReviewsList
+  autoComplete,
+  getSearch ,
+  getList,
+  getSimilarities,
+  getTags,
+  getCategories,
+  getReviews
   
 }
