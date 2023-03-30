@@ -14,9 +14,9 @@ const autoComplete = async (req, res) => {
 
   try {
     const response = await axios.request(options);
-    res.send({ message: "data returned from API", data: response.data.feed });
+    res.send({ message: "data returned from API", data: response.data });
   } catch (error) {
-    // console.error(error);
+    console.error(error);
     res.status(500).send({ message: error.message || "something went wrong" });
   }
 
@@ -51,7 +51,7 @@ const getSearch = async (req, res) => {
 
   try {
     const response = await axios.request(options);
-    res.send({ message: "data returned from API", data: response.data.feed });
+    res.send({ message: "data returned from API", data: response.data });
   } catch (error) {
     console.error(error);
     res.status(500).send({ message: error.message || "something went wrong" });
@@ -71,10 +71,10 @@ const getList = async (req, res) => {
   };
   try {
     const response = await axios.request(options);
-    res.send({ message: "data returned from API", data: response.data.feed });
+    res.send({ message: "data returned from API", data: response.data });
     console.log(response.data);
   } catch (error) {
-    // console.error(error);
+    console.error(error);
     res.status(500).send({ message: error.message || "something went wrong" });
   }
 };
@@ -99,35 +99,76 @@ const getSimilarities = async (req, res) => {
 
   try {
     const response = await axios.request(options);
-    res.send({ message: "data returned from API", data: response.data.feed });
+    res.send({ message: "data returned from API", data: response.data });
   } catch (error) {
+    console.error(error);
     res.status(500).send({ message: error.message || "something went wrong" });
   }
 };
 
-// Feed Tags List++++++++++++++++++++++++
+// Tags List
 const getTags = async (req, res) => {
   const options = {
     method: "GET",
     url: "https://yummly2.p.rapidapi.com/tags/list",
     headers: {
-      "X-RapidAPI-Key": "6b986dc8f7msh6a4bfdf9c925ddbp19b140jsnd0687ed9cdd3",
+      "X-RapidAPI-Key": process.env.TEST_KEY,
       "X-RapidAPI-Host": "yummly2.p.rapidapi.com"
     }
   };
 
   try {
     const response = await axios.request(options);
-    res.send({ message: "data returned from API", data: response.data.feed });
+    res.send({ message: "data returned from API", data: response.data });
   } catch (error) {
+    console.error(error);
     res.status(500).send({ message: error.message || "something went wrong" });
   }
 };
-// Feed Categories List++++++++++++++++++
-const getCategories = (req, res) => {};
 
-// Feed Review List++++++++++++++++++++++
-const getReviews = (req, res) => {};
+// Categories List
+const getCategories = async (req, res) => {
+  const options = {
+    method: "GET",
+    url: "https://yummly2.p.rapidapi.com/categories/list",
+    headers: {
+      "X-RapidAPI-Key": process.env.TEST_KEY,
+      "X-RapidAPI-Host": "yummly2.p.rapidapi.com"
+    }
+  };
+
+  try {
+    const response = await axios.request(options);
+    res.send({ message: "data returned from API", data: response.data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: error.message || "something went wrong" });
+  }
+};
+
+// Review List
+const getReviews = async (req, res) => {
+  const options = {
+    method: "GET",
+    url: "https://yummly2.p.rapidapi.com/reviews/list",
+    params: {
+      offset: "0",
+      globalId: "a8d6747a-bfaa-46a7-92fb-892e3f76b264",
+      limit: "20"
+    },
+    headers: {
+      "X-RapidAPI-Key": process.env.TEST_KEY,
+      "X-RapidAPI-Host": "yummly2.p.rapidapi.com"
+    }
+  };
+  try {
+    const response = await axios.request(options);
+    res.send({ message: "data returned from API", data: response.data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ message: error.message || "something went wrong" });
+  }
+};
 
 module.exports = {
   autoComplete,

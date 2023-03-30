@@ -10,13 +10,13 @@ const { getSimilarities } = require("../controller/yummlyController");
 // Get all Feeds
 router.get("/", getList);
 
-// Search Feeds
-router.get("/feeds/search/", getSearch);
-
-// Auto-Complete
+// Auto-complete feeds
 router.get("/feeds/auto-complete", autoComplete);
 
-// List - similarities
+// Search feeds
+router.get("/feeds/search/", getSearch);
+
+// List - similarities feeds
 router.get("/feeds/list-similarities", getSimilarities);
 
 module.exports = router;
