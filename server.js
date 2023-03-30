@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 require("dotenv").config();
 
+// ------------------ROUTES---------------------------
 // feeds list
 app.use("/api/feeds", require("./backend/Routes/feedsRoutes"));
 // feed search
@@ -28,6 +29,8 @@ app.use("/api/tags/list", require("./backend/Routes/feedsRoutes"));
 app.use("/api/categories/list", require("./backend/Routes/feedsRoutes"));
 // reviews-list
 app.use("/api/reviews/list", require("./backend/Routes/feedsRoutes"));
+
+// ____________________PORT__________________________
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
