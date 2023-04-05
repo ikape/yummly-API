@@ -4,6 +4,6 @@ const axios = require("axios");
 const { getCategories } = require("../controller/yummlyController");
 
 //Tags- List
-router.get("/tags/list", getCategories);
+router.get("/list", getCategories);
 
 module.exports = router;

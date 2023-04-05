@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const axios = require("axios");
 const { getReviews } = require("../controller/yummlyController");
 
 //reviews- List
-router.get("/tags/list", getReviews);
+router.get("/list", getReviews);
 
 module.exports = router;
