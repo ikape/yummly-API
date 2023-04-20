@@ -1,9 +1,30 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
 const port = 5050;
-const app = express();
 
+const options = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Yummly API",
+      version: "0.1.9",
+      description: "Testing of the Yummmly API from Rapid API"
+    },
+    servers: [
+      {
+        url: "http://localhost:5050/api/"
+      }
+    ]
+  },
+  apis: ["./Backend/Routes/*.js"]
+};
+const specs = swaggerJsDoc(options);
+
+const app = express();
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
